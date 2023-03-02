@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="lagou-cloud-configserver" />
+        <module name="lagou-service-common" />
+        <module name="lagou-service-email" />
+        <module name="lagou-cloud-gateway" />
+        <module name="lagou-cloud-business" />
+        <module name="lagou-cloud-eureka-server-8762" />
+        <module name="lagou-service-code" />
+        <module name="lagou-cloud-eureka-server-8761" />
+        <module name="lagou-service-user" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="lagou-cloud-business" options="-parameters" />
+      <module name="lagou-cloud-configserver" options="-parameters" />
+      <module name="lagou-cloud-eureka-server-8761" options="-parameters" />
+      <module name="lagou-cloud-eureka-server-8762" options="-parameters" />
+      <module name="lagou-cloud-gateway" options="-parameters" />
+      <module name="lagou-liuyu-login-parent" options="" />
+      <module name="lagou-service-code" options="-parameters" />
+      <module name="lagou-service-common" options="-parameters" />
+      <module name="lagou-service-email" options="-parameters" />
+      <module name="lagou-service-user" options="-parameters" />
+    </option>
+  </component>
+</project>

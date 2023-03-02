@@ -1,0 +1,63 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: lagou-service-email
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lagou?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      naming:
+        ## 避免将驼峰命名转换为下划线命名
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  cloud:
+    # config客户端配置和ConfigServer进行通信，并告知ConfigServer希望获取的配置信息在哪个文件中(label分支下的name-profile.yml)
+    config:
+      # 获取的文件名称
+      name: lagou-config-common
+      # 获取的文件名称后缀
+      profile: dev
+      # 获取的仓库分支
+      label: lagou-login-config
+      # configServer的访问地址
+      uri: http://localhost:9006
+  rabbitmq:
+    host: 175.178.27.134
+    port: 5672
+    username: guest
+    password: guest
+  # 邮件发送配置
+  mail:
+    # 邮箱服务器地址
+    host: smtp.qq.com
+    # 邮箱账号
+    username: 2596609420@qq.com
+    # 邮箱密码，如果POP3需要授权码，此处应填授权码
+    password: mnuyhomrpviqdhgj
+    default-encoding: UTF-8
+
+# 注册到eureka server中
+#eureka:
+#  client:
+#    service-url:
+#      # 注册到集群，就把多个eurekaServer地址使用逗号进行连接起来即可，注册到单实例(非集群模式), 那就写一个
+#      defaultZone: http://LagouCloudEurekaServerA:8761/eureka/,http://LagouCloudEurekaServerB:8762/eureka/
+#  instance:
+#    #  服务实例中显示ip，而不是显示主机名(兼容老的eureka版本)
+#    prefer-ip-address: true
+#    # 实例名称  172.16.172.24:lagou-service-resume:8080， 这里使用instance-id进行自定义
+#    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  # 暴露健康接⼝的细节
+#  endpoint:
+#    health:
+#      show-details: always
